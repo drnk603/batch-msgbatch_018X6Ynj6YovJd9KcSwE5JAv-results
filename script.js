@@ -111,7 +111,7 @@
     if (app.smoothScrollInit) return;
     app.smoothScrollInit = true;
 
-    var isHomepage = window.location.pathname === '/' || window.location.pathname.match(//index.html?$/);
+    var isHomepage = window.location.pathname === '/' || window.location.pathname.match(/\/index\.html?$/);
     var links = document.querySelectorAll('a[href^="#"]');
 
     for (var i = 0; i < links.length; i++) {
@@ -418,7 +418,7 @@
   }
 
   function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[]\]/g, '\$&');
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '$&');
   }
 
   function initForms() {
@@ -666,7 +666,7 @@
             modalContent.style.position = 'relative';
             modalContent.style.animation = 'slideUp 0.4s ease-out';
 
-            modalContent.innerHTML = '<h2>Datenschutzerklärung</h2><p>Hier finden Sie unsere Datenschutzrichtlinien...</p><button class="btn btn-primary mt-4" onclick="this.closest('.modal-overlay').remove()">Schließen</button>';
+            modalContent.innerHTML = '<h2>Datenschutzerklärung</h2><p>Hier finden Sie unsere Datenschutzrichtlinien...</p><button class="btn btn-primary mt-4" onclick="this.closest(\'.modal-overlay\').remove()">Schließen</button>';
 
             modal.className = 'modal-overlay';
             modal.appendChild(modalContent);
